@@ -127,5 +127,23 @@ namespace LW_Equation
             return result;
         }
 
+        public LinearEquation SetRandom()
+        {
+            Random rnd = new Random();
+            for (int i = 0; i < Size; i++)
+            {
+                coefficients[i] = (float)(rnd.Next() + rnd.NextDouble());
+            }
+            return this;
+        }
+        public LinearEquation SetSame(float val)
+        {
+            for (int i = 0; i < Size; i++)
+            {
+                coefficients[i] = val;
+            }
+            return this;
+        }
+
     }
 }
