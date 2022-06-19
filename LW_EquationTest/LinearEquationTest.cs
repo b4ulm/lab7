@@ -1,6 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using LW_Equation;
 using System;
+using System.Collections.Generic;
 
 namespace LW_EquationTest
 {
@@ -219,5 +220,28 @@ namespace LW_EquationTest
             LinearEquation result = a - b;
             Assert.AreEqual(new LinearEquation(-3, 2, -2), result);
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(Exception))]
+        public void LinearEquationTestHasSolution1()
+        {
+            LinearEquation a = new LinearEquation(new List<float>() { 1 });
+            Assert.Equals(a.Solution(), new Exception());
+        }
+
+        [TestMethod]
+        public void LinearEquationTestSolution()
+        {
+            LinearEquation a = new LinearEquation(1, 2);
+            float res = a.Solution();
+            Assert.AreEqual(-0.5F, res);
+        }
+        [TestMethod]
+        public void LinearEquationTestSolution1()
+        {
+            LinearEquation a = new LinearEquation(new List<float>() { 1 });
+            AssertFailedException.Equals(a.Solution(), new Exception());
+        }
+
     }
 }
