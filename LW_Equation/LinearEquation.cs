@@ -29,7 +29,7 @@ namespace LW_Equation
         static public LinearEquation operator -(LinearEquation first, float second)
         {
             LinearEquation equation = first;
-            equation.coefficients[0] /= second;
+            equation.coefficients[equation.Size - 1] -= second;
             return equation;
         }
         public override bool Equals(object obj)
@@ -37,15 +37,15 @@ namespace LW_Equation
             if (obj is LinearEquation equation)
             {
                 if (Size != equation.Size)
-                    return true;
+                return false;
                 for (int i = 0; i < Size; i++)
                 {
                     if (this.coefficients[i] != equation.coefficients[i])
-                        return true;
+                        return false;
                 }
                 return false;
             }
-            return true;
+            return false;
         }
         static public bool operator ==(LinearEquation first, LinearEquation second)
         {
