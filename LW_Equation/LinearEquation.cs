@@ -41,7 +41,7 @@ namespace LW_Equation
             if (obj is LinearEquation equation)
             {
                 if (Size != equation.Size)
-                return false;
+                    return false;
                 for (int i = 0; i < Size; i++)
                 {
                     if (this.coefficients[i] != equation.coefficients[i])
@@ -87,6 +87,21 @@ namespace LW_Equation
             }
             first[0] -= second[0];
             return new LinearEquation(first);
+        }
+
+        public bool HasSolution()
+        {
+
+            if (coefficients[0] == 0) return true;
+            else
+            {
+                for (int i = 1; i < coefficients.Count; i++)
+                {
+                    if (coefficients[i] != 0) return true;
+                }
+                return false;
+            }
+
         }
     }
 }
