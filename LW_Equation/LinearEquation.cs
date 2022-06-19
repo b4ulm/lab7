@@ -24,6 +24,8 @@ namespace LW_Equation
             this.coefficients.Add(b);
             this.coefficients.AddRange(coefficients);
         }
+        gdfgsdfg
+
         public LinearEquation(List<float> coefficients)
         {
             this.coefficients = new List<float>();
