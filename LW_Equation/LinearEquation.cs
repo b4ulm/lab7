@@ -33,6 +33,9 @@ namespace LW_Equation
             equation.coefficients[equation.Size - 1] -= second;
             return equation;
         }
+
+
+
         public override bool Equals(object obj)
         {
             if (obj is LinearEquation equation)
@@ -59,6 +62,17 @@ namespace LW_Equation
         public float this[int i]
         {
             get { return this.coefficients[i]; }
+        }
+
+        static public LinearEquation operator +(LinearEquation a, LinearEquation b)
+        {
+            LinearEquation result = a;
+            return result;
+        }
+        static public LinearEquation operator -(LinearEquation a, LinearEquation b)
+        {
+            LinearEquation result = a;
+            return result;
         }
     }
 }
