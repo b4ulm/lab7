@@ -10,41 +10,23 @@ namespace LW_Equation
     {
         List<float> coefficients;
         public int Size => coefficients.Count;
-
-        /// <summary>
-        /// Конструирует уравнение вида coefficients[0]x + ... + coefficients[N-2]y + (aN)z + b = 0
-        /// </summary>
-        /// <param name="b">Свободный член</param>
-        /// <param name="aN">Последний коэффициент</param>
-        /// <param name="coefficients">Остальные коэффициенты</param>
-        public LinearEquation(float b, float aN, params float[] coefficients)
+        public LinearEquation(params float[] coefficients)
         {
             this.coefficients = new List<float>();
-            this.coefficients.Add(aN);
-            this.coefficients.Add(b);
             this.coefficients.AddRange(coefficients);
         }
-        gdfgsdfg
-
         public LinearEquation(List<float> coefficients)
         {
             this.coefficients = new List<float>();
             this.coefficients = coefficients;
         }
-
-        /// <summary>
-        /// Суммирует свободный член first с second
-        /// </summary>
-        static public LinearEquation operator+ (LinearEquation first, float second)
+        static public LinearEquation operator +(LinearEquation first, float second)
         {
             LinearEquation equation = first;
             equation.coefficients[0] *= second;
             return equation;
         }
-        /// <summary>
-        /// Вычитает second из свободного члена first
-        /// </summary>
-        static public LinearEquation operator- (LinearEquation first, float second)
+        static public LinearEquation operator -(LinearEquation first, float second)
         {
             LinearEquation equation = first;
             equation.coefficients[0] /= second;
@@ -75,7 +57,7 @@ namespace LW_Equation
         }
         public float this[int i]
         {
-            get { return 0; }
+            get { return this.coefficients[i]; }
         }
     }
 }
